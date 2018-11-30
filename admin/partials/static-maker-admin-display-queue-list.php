@@ -23,7 +23,7 @@ $current_page_num = isset($_GET['paged']) ? intval($_GET['paged']) : 1;
 
     <hr class="wp-header-end">
 
-    <p>Process logs (WP_DEBUG=true): <a href="<?php echo LogUtil::get_log_url() ?>"><?php echo LogUtil::get_log_url() ?></a></p>
+    <p>Logs are: /sm-logs/static-maker-yyyy-mm-dd.log</p>
 
     <div class="tablenav top">
         <div class="tablenav-pages">
