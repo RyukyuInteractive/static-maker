@@ -198,15 +198,16 @@ class Static_Maker_Admin
          *        Administration Menus: http://codex.wordpress.org/Administration_Menus
          *
          */
-        $cap = 'manage_options';
+        $admin_cap = 'manage_options';
+        $editor_cap = 'edit_others_posts';
         $slug = $this->plugin_name;
 
-        add_menu_page('Static Maker', 'Static Maker', $cap, $slug, false, 'dashicons-welcome-widgets-menus', '80.050');
+        add_menu_page('Static Maker', 'Static Maker', $admin_cap, $slug, false, 'dashicons-welcome-widgets-menus', '80.050');
 
-        add_submenu_page($this->plugin_name, __('Managed page list', PLUGIN_NAME), __('Pages', PLUGIN_NAME), $cap, $slug, array($this, 'display_plugin_page_list_page'));
-        add_submenu_page($this->plugin_name, __('All Queue List', PLUGIN_NAME), __('Queues', PLUGIN_NAME), $cap, $slug . '_queues', array($this, 'display_plugin_queue_list_page'));
-        add_submenu_page($this->plugin_name, __('Add page', PLUGIN_NAME), __('Add', PLUGIN_NAME), $cap, $slug . '_page_add', array($this, 'display_plugin_add_page'));
-        add_submenu_page($this->plugin_name, __('Settings', PLUGIN_NAME), __('Settings', PLUGIN_NAME), $cap, $slug . '_settings', array($this, 'display_plugin_setup_page'));
+        add_submenu_page($this->plugin_name, __('Managed page list', PLUGIN_NAME), __('Pages', PLUGIN_NAME), $admin_cap, $slug, array($this, 'display_plugin_page_list_page'));
+        add_submenu_page($this->plugin_name, __('All Queue List', PLUGIN_NAME), __('Queues', PLUGIN_NAME), $editor_cap, $slug . '_queues', array($this, 'display_plugin_queue_list_page'));
+        add_submenu_page($this->plugin_name, __('Add page', PLUGIN_NAME), __('Add', PLUGIN_NAME), $admin_cap, $slug . '_page_add', array($this, 'display_plugin_add_page'));
+        add_submenu_page($this->plugin_name, __('Settings', PLUGIN_NAME), __('Settings', PLUGIN_NAME), $admin_cap, $slug . '_settings', array($this, 'display_plugin_setup_page'));
 
         do_action('static_maker_menu_configure', $slug);
     }
